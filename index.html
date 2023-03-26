@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
 
-
-
-
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+  </head>
+  <body>
+    <nav class="head"></nav>
+    <main>
+      <div class="sidebar">
+        <input type="text" id="sidebar-title" placeholder="Title" />
+        <textarea id="sidebar-description" cols="30" rows="10"></textarea>
+        <button id="sidebar-submit-button"></button>
+      </div>
+      <div class="center">
+        <div class="list"></div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+    <script src="card.js"></script>
+  </body>
 </html>
+
