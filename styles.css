@@ -1,0 +1,117 @@
+body {
+    background-color: #1C3144;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+.center {
+    margin-left: 300px;
+    padding: 20px;
+    max-width: 1200px;
+    padding: 0 20px;
+    display: flex
+}
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+h1 {
+    font-size: 2em;
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 0 0 20px 0;
+}
+h2 {
+    font-size: 1.5em;
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 0 0 20px 0;
+}
+h3 {
+    font-size: 1.2em;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0 0 20px 0;
+}
+h4 {
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0 0 20px 0;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 300px;
+    background-color: #0C151D;
+    padding: 20px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+#sidebar-title {
+    width: 100%;
+    color: #333;
+    font-size: 1.5em;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+#sidebar-description {
+    width: 100%;
+    color: #333;
+    font-size: 0.9em;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+#sidebar-submit-button {
+    width: 100%;
+    color: #333;
+    font-size: 0.9em;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+    background-color: #fff;
+    color: #654C4F;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    border-color:#333;
+    cursor: pointer;
+    
+}
+
+#sidebar-submit-button:hover {
+    background-color: #654C4F;
+    color: #333;
+}
+
+.card {
+    width: 100px;
+    height: auto;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin: 0 0 20px 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
