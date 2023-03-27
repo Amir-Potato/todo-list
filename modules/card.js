@@ -1,5 +1,9 @@
-export function createCard(title, desc, removeFunc, editFunc) {
-  const uniqueId = Math.random().toString(36).substring(2, 9);
+export function createCard(title, desc, removeFunc, editFunc, id) {
+  // ensures that uniqueId can exist and will be used if it does, but it will be created later if it does not exist
+  const uniqueId = id || Math.random().toString(36).substring(2, 9);
+
+
+
 
   //creates card elements
   let card = document.createElement("div");
