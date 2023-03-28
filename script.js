@@ -4,7 +4,6 @@ const descriptionInput = document.getElementById("sidebar-description");
 const buttonInput = document.getElementById("sidebar-submit-button");
 const listElement = document.getElementsByClassName("list")[0];
 
-
 // Load cards from localStorage
 let list = loadCards();
 
@@ -12,7 +11,7 @@ let list = loadCards();
 buttonInput.addEventListener("click", () => {
   const title = titleInput.value.trim();
   const description = descriptionInput.value.trim();
-    //Add card to the list of title and description are provided
+  //Add card to the list of title and description are provided
   if (title && description) {
     list.push(createCard(title, description, remove, edit));
     saveCards(list);
@@ -20,15 +19,16 @@ buttonInput.addEventListener("click", () => {
   // Render updated list
   render();
 });
+
 // Remove card by id
-function remove(id){
+function remove(id) {
   list = list.filter((container) => container.id != id);
   saveCards(list);
   render();
-};
+}
 
 // Edit card by id
-function edit(id){
+function edit(id) {
   const container = list.filter((container) => container.id == id)[0];
 
   const title = container.card.querySelector("h4").innerText;
@@ -38,11 +38,13 @@ function edit(id){
   descriptionInput.value = description;
   // Remove the card from the list
   remove(id);
-};
+}
 // Load cards from localStorage
 function loadCards() {
   const cardsData = JSON.parse(localStorage.getItem("cards")) || [];
-  return cardsData.map((data) => createCard(data.title, data.description, remove, edit, data.id));
+  return cardsData.map((data) =>
+    createCard(data.title, data.description, remove, edit, data.id)
+  );
 }
 // Save cards to localStorage
 function saveCards(cards) {
@@ -66,4 +68,4 @@ const render = () => {
   }
 };
 //initial render to load from localStorage
-render()  
+render();
