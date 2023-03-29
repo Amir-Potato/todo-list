@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <title>To Do List</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
-  <body>
-    <nav class="head"></nav>
+  <body class="default">
+    <nav class="head">
+      <h1>Welcome to ToDO List</h1>
+      <button id="theme-toggle">Theme</button>
+
+      <div class="themes">
+        <button class="theme-button" data-theme="light">Light</button>
+        <button class="theme-button active" data-theme="default">
+          Default
+        </button>
+        <button class="theme-button" data-theme="dark">Dark</button>
+        <button class="theme-button" data-theme="stupid">Why?</button>
+      </div>
+    </nav>
     <main>
       <div class="sidebar">
         <input type="text" id="sidebar-title" placeholder="Title" />
@@ -23,6 +34,6 @@
     </main>
     <script type="module" src="script.js"></script>
     <script type="module" src="modules/card.js"></script>
+    <script type="module" src="modules/theme.js"></script>
   </body>
 </html>
-
