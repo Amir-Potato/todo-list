@@ -165,5 +165,18 @@ main {
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    pointer-events: all;
+}
+
+.card .drag-texture {
+    width: 90%;
+    height: 20px;
+    background-image: repeating-linear-gradient(90deg, var(--primary) 0% 50%,
+     var(--tertiary) 50% 100%);
+     background-repeat: repeat;
+     background-size: 4px;
+     border-radius: 5px;
+     cursor: grab;
+     user-select: none;
 }
 

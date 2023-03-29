@@ -5,7 +5,7 @@ const buttonInput = document.getElementById("sidebar-submit-button");
 const listElement = document.getElementsByClassName("list")[0];
 
 // Load cards from localStorage
-let list = loadCards();
+export let list = loadCards();
 
 // Listen for sidebar button click
 buttonInput.addEventListener("click", () => {
@@ -14,7 +14,6 @@ buttonInput.addEventListener("click", () => {
   //Add card to the list of title and description are provided
   if (title && description) {
     list.push(createCard(title, description, remove, edit));
-    saveCards(list);
   }
   // Render updated list
   render();
@@ -23,7 +22,6 @@ buttonInput.addEventListener("click", () => {
 // Remove card by id
 function remove(id) {
   list = list.filter((container) => container.id != id);
-  saveCards(list);
   render();
 }
 
@@ -57,7 +55,7 @@ function saveCards(cards) {
 }
 
 // Render the list of cards
-const render = () => {
+export const render = () => {
   // Remove existing card elements
   while (listElement.firstChild) {
     listElement.removeChild(listElement.firstChild);
@@ -66,6 +64,8 @@ const render = () => {
   for (const container of list) {
     listElement.appendChild(container.card);
   }
+
+  saveCards(list);
 };
 //initial render to load from localStorage
 render();
