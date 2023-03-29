@@ -3,13 +3,26 @@ export function createCard(title, desc, removeFunc, editFunc, id) {
 
   // Creates card elements
   let card = document.createElement("div");
+  let cardDrag = document.createElement("div");
   let cardTitle = document.createElement("h4");
   let cardDescription = document.createElement("p");
   let cardActions = document.createElement("div");
   let cardRemove = document.createElement("button");
   let cardEdit = document.createElement("button");
 
-  // Assign title and description to the card
+
+  // Assign attr to card
+  const dragAttr = document.createAttribute("draggable");
+  const idAttr = document.createAttribute("data-id");
+
+  idAttr.value = `${id}`;
+  dragAttr.value = "false";
+
+  cardDrag.attributes.setNamedItem(dragAttr);
+  card.attributes.setNamedItem(idAttr);
+
+  // assign title and description to the card
+
   cardTitle.innerText = title;
   cardDescription.innerText = desc;
 
@@ -17,8 +30,12 @@ export function createCard(title, desc, removeFunc, editFunc, id) {
   cardRemove.innerText = "Remove";
   cardEdit.innerText = "Edit";
   card.classList.add("card");
+  cardDrag.classList.add("drag-texture");
 
-  // Appends card title, description, and actions to the card
+
+  // appends card title, description, and actions to the card
+  card.appendChild(cardDrag);
+
   card.appendChild(cardTitle);
   card.appendChild(cardDescription);
   card.appendChild(cardActions);
