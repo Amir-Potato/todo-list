@@ -1,71 +1,57 @@
 import { createCard } from "./modules/card.js";
-const titleInput = document.getElementById("sidebar-title");
-const descriptionInput = document.getElementById("sidebar-description");
-const buttonInput = document.getElementById("sidebar-submit-button");
-const listElement = document.getElementsByClassName("list")[0];
+import { titleInput, descriptionInput, buttonInput, listElement } from "./modules/domElements.js";
+import { remove, edit} from "./modules/cardActions.js";
+import { saveCards, loadCards } from "./modules/saving.js";
 
 // Load cards from localStorage
-let list = loadCards();
+let cardsData = loadCards();
+let list = cardsData.map((data) => createCard(data.title, data.description, removeCard, editCard, data.id));
 
 // Listen for sidebar button click
 buttonInput.addEventListener("click", () => {
   const title = titleInput.value.trim();
   const description = descriptionInput.value.trim();
-  //Add card to the list of title and description are provided
-  if (title && description) {
-    list.push(createCard(title, description, remove, edit));
-    saveCards(list);
+
+  // Add card to the list if title and description are provided
+  if (title) {
+    const newCard = createCard(title, description, removeCard, editCard);
+    list.push(newCard);
+    saveCardsData(list);
+    render();
   }
-  // Render updated list
-  render();
 });
 
-// Remove card by id
-function remove(id) {
-  list = list.filter((container) => container.id != id);
-  saveCards(list);
+function removeCard(id) {
+  list = remove(list, id);
+  saveCardsData(list);
   render();
 }
 
-// Edit card by id
-function edit(id) {
-  const container = list.filter((container) => container.id == id)[0];
+function editCard(id) {
+  list = edit(list, id);
+  render();
+}
 
-  const title = container.card.querySelector("h4").innerText;
-  const description = container.card.querySelector("p").innerText;
-  // Update input fields with the selected card's title and description
-  titleInput.value = title;
-  descriptionInput.value = description;
-  // Remove the card from the list
-  remove(id);
-}
-// Load cards from localStorage
-function loadCards() {
-  const cardsData = JSON.parse(localStorage.getItem("cards")) || [];
-  return cardsData.map((data) =>
-    createCard(data.title, data.description, remove, edit, data.id)
-  );
-}
-// Save cards to localStorage
-function saveCards(cards) {
+function saveCardsData(cards) {
   const cardsData = cards.map((container) => ({
     id: container.id,
     title: container.card.querySelector("h4").innerText,
     description: container.card.querySelector("p").innerText,
   }));
-  localStorage.setItem("cards", JSON.stringify(cardsData));
+  saveCards(cardsData);
 }
 
-// Render the list of cards
-const render = () => {
-  // Remove existing card elements
-  while (listElement.firstChild) {
-    listElement.removeChild(listElement.firstChild);
-  }
-  //Add card elements to the list
-  for (const container of list) {
-    listElement.appendChild(container.card);
-  }
-};
-//initial render to load from localStorage
-render();
+  // Render the list of cards
+  const render = () => {
+    // Remove existing card elements
+    while (listElement.firstChild) {
+      listElement.removeChild(listElement.firstChild);
+    }
+    // Add card elements to the list
+    for (const container of list) {
+      listElement.appendChild(container.card);
+    }
+  };
+
+  // Initial render to load from localStorage
+  render();
