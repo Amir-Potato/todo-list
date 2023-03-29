@@ -11,12 +11,36 @@ body, html {
     padding: 0;
 }
 
+.light {
+    --primary: #ddd;
+    --secondary: #222;
+    --tertiary: #aaa;
+    --accent: #777;
+    --hover: #999;
+}
+
 .default {
     --primary: #1C3144;
-    --secondary: #333;
+    --secondary: #fff;
     --tertiary: #0C151D;
-    --accent: white;
+    --accent: #333;
     --hover: #654C4F;
+}
+
+.dark {
+    --primary: #222;
+    --secondary: #fff;
+    --tertiary: #111;
+    --accent: #888;
+    --hover: #444;
+}
+
+.stupid {
+    --primary: red;
+    --secondary: blue;
+    --tertiary: orange;
+    --accent: green;
+    --hover: purple;
 }
 
 .center {
@@ -84,6 +108,8 @@ main {
 #sidebar-title {
     width: 100%;
     color: var(--secondary);
+    background-color: var(--tertiary);
+    border-color: var(--secondary);
     font-size: 1.5em;
     font-weight: 300;
     margin: 0;
@@ -95,6 +121,8 @@ main {
 #sidebar-description {
     width: 100%;
     color: var(--secondary);
+    background-color: var(--tertiary);
+    border-color: var(--secondary);
     font-size: 0.9em;
     font-weight: 300;
     margin: 0;
@@ -112,10 +140,10 @@ main {
     padding: 0;
     margin-bottom: 20px;
     background-color: var(--tertiary);
-    border: none;
+    border: 1px solid;
     padding: 10px;
     border-radius: 5px;
-    border-color:var(--tertiary);
+    border-color: var(--secondary);
     cursor: pointer;
     
 }
