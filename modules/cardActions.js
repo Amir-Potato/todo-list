@@ -1,11 +1,15 @@
 import { titleInput, descriptionInput } from "./domElements.js";
+import { getList, setList } from "../script.js";
 
-export function remove(list, id) {
+export function remove(id) {
+  let list = getList();
   list = list.filter((container) => container.id != id);
-  return list;
+  setList(list);
 }
 
-export function edit(list, id) {
+export function edit(id) {
+  let list = getList();
+
   const container = list.filter((container) => container.id == id)[0];
 
   const title = container.card.querySelector("h4").innerText;
@@ -14,7 +18,5 @@ export function edit(list, id) {
   titleInput.value = title;
   descriptionInput.value = description;
 
-  list = remove(list, id);
-  return list;
+  remove(id);
 }
-
