@@ -1,0 +1,41 @@
+.themes {
+    display: none;
+    position: fixed;
+}
+
+.themes.open {
+    display: flex;
+    flex-direction: column;
+}
+
+.light {
+    --primary: #ddd;
+    --secondary: #222;
+    --tertiary: #aaa;
+    --accent: #777;
+    --hover: #999;
+}
+
+.default {
+    --primary: #1C3144;
+    --secondary: #fff;
+    --tertiary: #0C151D;
+    --accent: #333;
+    --hover: #654C4F;
+}
+
+.dark {
+    --primary: #222;
+    --secondary: #fff;
+    --tertiary: #111;
+    --accent: #888;
+    --hover: #444;
+}
+
+.stupid {
+    --primary: red;
+    --secondary: blue;
+    --tertiary: orange;
+    --accent: green;
+    --hover: purple;
+}
