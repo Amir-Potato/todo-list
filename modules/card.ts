@@ -1,12 +1,23 @@
-import { getList, setList } from "../script.js";
+import { getList, setList } from "./script.js";
 
 let currentlyDragging = "";
 
-window.addEventListener("mouseup", (ev) => {
+window.addEventListener("mouseup", () => {
   currentlyDragging = "";
 });
 
-export function createCard(title, desc, removeFunc, editFunc, id) {
+export interface ICard {
+  id: string;
+  card: HTMLDivElement;
+}
+
+export function createCard(
+  title: string,
+  desc: string,
+  removeFunc: (id: string) => void,
+  editFunc: (id: string) => void,
+  id?: string
+): ICard {
   const uniqueId = id ? id : Math.random().toString(36).substring(2, 9);
 
   // Creates card elements
@@ -29,7 +40,7 @@ export function createCard(title, desc, removeFunc, editFunc, id) {
   card.attributes.setNamedItem(idAttr);
 
   // Set Drag props
-  card.addEventListener("mouseenter", (ev) => {
+  card.addEventListener("mouseenter", () => {
     if (
       currentlyDragging != "" &&
       currentlyDragging != card.getAttribute("data-id")
@@ -38,8 +49,10 @@ export function createCard(title, desc, removeFunc, editFunc, id) {
     }
   });
 
-  cardDrag.addEventListener("mousedown", (ev) => {
-    currentlyDragging = cardDrag.parentElement.getAttribute("data-id");
+  cardDrag.addEventListener("mousedown", () => {
+    if (cardDrag.parentElement) {
+      currentlyDragging = cardDrag.parentElement.getAttribute("data-id") ?? "";
+    }
   });
 
   // assign title and description to the card

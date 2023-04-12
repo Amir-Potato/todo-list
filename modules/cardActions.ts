@@ -1,5 +1,5 @@
 import { titleInput, descriptionInput } from "./domElements.js";
-import { getList, setList } from "../script.js";
+import { getList, setList } from "./script.js";
 
 export function remove(id) {
   let list = getList();
@@ -15,8 +15,10 @@ export function edit(id) {
   const title = container.card.querySelector("h4").innerText;
   const description = container.card.querySelector("p").innerText;
 
-  titleInput.value = title;
-  descriptionInput.value = description;
+  if (titleInput && descriptionInput) {
+    titleInput.value = title;
+    descriptionInput.value = description;
+  }
 
   remove(id);
 }
