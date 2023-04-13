@@ -21,7 +21,7 @@ function loadTheme() {
 function changeTheme(theme) {
   // Remove existing theme classes
   for (const button of themeButtons) {
-    body.classList.remove(button.getAttribute("data-theme"));
+    body.classList.remove(button.getAttribute("data-theme") ?? "");
   }
 
   // Add the new theme class
@@ -29,7 +29,7 @@ function changeTheme(theme) {
   saveTheme(theme);
 }
 
-themeToggleButton.addEventListener("click", () => {
+themeToggleButton?.addEventListener("click", () => {
   themePanel.classList.toggle("open");
 });
 
