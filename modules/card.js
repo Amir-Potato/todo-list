@@ -17,11 +17,14 @@ export function createCard(title, desc, removeFunc, editFunc, id) {
   let cardActions = document.createElement("div");
   let cardRemove = document.createElement("button");
   let cardEdit = document.createElement("button");
+  let cardRemoveSVG = document.createElement("svg");
+  let cardEditSVG = document.createElement("svg");
+
 
   // Assign attr to card
   const dragAttr = document.createAttribute("draggable");
   const idAttr = document.createAttribute("data-id");
-
+  
   idAttr.value = `${uniqueId}`;
   dragAttr.value = "false";
 
@@ -48,6 +51,8 @@ export function createCard(title, desc, removeFunc, editFunc, id) {
 
   // Configures button and classes
   cardRemove.innerText = "Remove";
+  cardRemove.classList.add("card-remove-button");
+  cardEdit.classList.add("card-edit-button");
   cardEdit.innerText = "Edit";
   card.classList.add("card");
   cardDrag.classList.add("drag-texture");

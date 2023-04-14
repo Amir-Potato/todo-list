@@ -11,16 +11,19 @@ body, html {
     padding: 0;
 }
 .center {
-    margin-left: 300px;
+    margin-left: 20px;
     padding: 20px;
     max-width: 1200px;
     padding: 0 20px;
-    display: flex
+    display: flex;
+    justify-content: flex-start;
 }
 .list {
     display: flex;
+    align-content: flex-start;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: start;
+    gap: 20px 5px;
 }
 h1 {
     font-size: 2em;
