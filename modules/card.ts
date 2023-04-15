@@ -28,9 +28,6 @@ export function createCard(
   let cardActions = document.createElement("div");
   let cardRemove = document.createElement("button");
   let cardEdit = document.createElement("button");
-  let cardRemoveSVG = document.createElement("svg");
-  let cardEditSVG = document.createElement("svg");
-
 
   // Assign attr to card
   const dragAttr = document.createAttribute("draggable");
