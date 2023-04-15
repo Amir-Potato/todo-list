@@ -32,7 +32,7 @@ export function createCard(
   // Assign attr to card
   const dragAttr = document.createAttribute("draggable");
   const idAttr = document.createAttribute("data-id");
-
+  
   idAttr.value = `${uniqueId}`;
   dragAttr.value = "false";
 
@@ -61,6 +61,8 @@ export function createCard(
 
   // Configures button and classes
   cardRemove.innerText = "Remove";
+  cardRemove.classList.add("card-remove-button");
+  cardEdit.classList.add("card-edit-button");
   cardEdit.innerText = "Edit";
   card.classList.add("card");
   cardDrag.classList.add("drag-texture");
